@@ -1,6 +1,5 @@
 terraform {
-    #source = "git@github.com:Dev-Marques-Ops/terraform-tags.git//modules/tags"
-    source = "../../../../../DevMarquesOps/terraform-tags/modules/tags"
+    source = "git@github.com:Dev-Marques-Ops/terraform-tags.git//modules/tags"
 }
 
 include {
@@ -9,10 +8,9 @@ include {
 
 inputs = {
     prefix_name = "Dev-Marques-Ops"
-
+    environment = "development"
     commons = {
         email       = "mateusmarques1993@gmail.com"
         account_id  = get_aws_account_id()
-        environment = "development"
     }
 }

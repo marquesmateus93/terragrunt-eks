@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../DevMarquesOps/terraform-eks/modules/bastion/key_pair"
+    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/bastion/key_pair"
 }
 
 include {
@@ -21,6 +21,6 @@ dependency "tags" {
 
 inputs = {
     prefix_name     = dependency.tags.outputs.prefix_name
-    public_key      = file("key_files/aws-key-pair.pub")
+    public_key      = file("key_files/marques.pub")
     tags            = dependency.tags.outputs.commons
 }

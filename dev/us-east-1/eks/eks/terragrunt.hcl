@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/bastion/security_group"
+    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/eks/eks"
 }
 
 include {
@@ -7,7 +7,7 @@ include {
 }
 
 dependency "tags" {
-    config_path     = "../../tags"
+    config_path = "../../tags"
     mock_outputs    = {
         prefix_name = "dummy_prefix"
 

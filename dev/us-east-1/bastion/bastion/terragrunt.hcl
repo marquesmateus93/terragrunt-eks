@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../DevMarquesOps/terraform-eks/modules/bastion/bastion"
+    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/bastion/bastion"
 }
 
 include {
