@@ -12,5 +12,6 @@ inputs = {
     commons = {
         email       = "mateusmarques1993@gmail.com"
         account_id  = get_aws_account_id()
+        environment = "dummy_env"
     }
 }

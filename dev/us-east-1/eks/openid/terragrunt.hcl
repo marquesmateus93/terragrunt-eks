@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../terraform/modules/eks/node-groups/public"
+  source = "../../../../../../terraform/modules/eks/openid"
 }
 
 include {
@@ -7,7 +7,7 @@ include {
 }
 
 dependency "tags" {
-  config_path = "../../../tags"
+  config_path = "../../tags"
   mock_outputs    = {
     prefix_name = "dummy_prefix"
 
@@ -20,18 +20,14 @@ dependency "tags" {
 }
 
 dependency "eks" {
-  config_path = "../../eks"
-
-  mock_outputs = {
-    cluster_name  = "dummy_cluster"
-    eks_version   = "1.26"
-  }
+  config_path = "../eks"
 }
 
 inputs = {
   prefix_name     = dependency.tags.outputs.prefix_name
   tags            = dependency.tags.outputs.commons
 
-  cluster_name    = dependency.eks.outputs.cluster_name
-  eks_version     = dependency.eks.outputs.eks_version
+  oidc            = dependency.eks.outputs.oidc
+  thumbprint_list = dependency.eks.outputs.thumbprint
+  endpoint        = dependency.eks.outputs.endpoint
 }

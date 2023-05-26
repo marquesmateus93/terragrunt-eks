@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/eks/eks"
+    source = "../../../../../../terraform/modules/eks/eks"
 }
 
 include {
@@ -22,4 +22,5 @@ dependency "tags" {
 inputs = {
     prefix_name = dependency.tags.outputs.prefix_name
     tags        = dependency.tags.outputs.commons
+    #eks_version = "1.23"
 }

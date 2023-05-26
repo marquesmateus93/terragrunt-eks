@@ -1,13 +1,17 @@
 terraform {
-  source = "../../../../../../../terraform/modules/eks/node-groups/public"
+  source = "../../../../../../terraform/modules/epinio"
+  include_in_copy = [
+    "**/.helmignore",
+    ".helmignore",
+  ]
 }
 
 include {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("terragrunt-helm.hcl")
 }
 
 dependency "tags" {
-  config_path = "../../../tags"
+  config_path = "../../tags"
   mock_outputs    = {
     prefix_name = "dummy_prefix"
 
@@ -20,7 +24,7 @@ dependency "tags" {
 }
 
 dependency "eks" {
-  config_path = "../../eks"
+  config_path = "../eks"
 
   mock_outputs = {
     cluster_name  = "dummy_cluster"
@@ -32,6 +36,5 @@ inputs = {
   prefix_name     = dependency.tags.outputs.prefix_name
   tags            = dependency.tags.outputs.commons
 
-  cluster_name    = dependency.eks.outputs.cluster_name
-  eks_version     = dependency.eks.outputs.eks_version
+  endpoint        = dependency.eks.outputs.endpoint
 }
