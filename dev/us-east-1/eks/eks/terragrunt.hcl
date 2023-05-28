@@ -22,4 +22,5 @@ dependency "tags" {
 inputs = {
     prefix_name = dependency.tags.outputs.prefix_name
     tags        = dependency.tags.outputs.commons
+    eks_version = "1.23"
 }
