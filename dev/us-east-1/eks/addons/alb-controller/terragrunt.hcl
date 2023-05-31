@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/addons/csi"
+  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/addons/alb-controller"
   include_in_copy = [
     "**/.helmignore",
     ".helmignore",
@@ -42,6 +42,7 @@ dependency "openid" {
 
 inputs = {
   prefix_name           = dependency.tags.outputs.prefix_name
+  cluster_name          = dependency.eks.outputs.cluster_name
   openid                = dependency.openid.outputs.openid
   oidc_without_protocol = dependency.eks.outputs.oidc_without_protocol
   tags                  = dependency.tags.outputs.commons

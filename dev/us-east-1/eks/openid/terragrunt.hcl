@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/eks/openid"
+  source = "../../../../../../TerraformModules/terraform-eks/modules/eks/openid"
 }
 
 include {
@@ -24,10 +24,9 @@ dependency "eks" {
 }
 
 inputs = {
-  prefix_name     = dependency.tags.outputs.prefix_name
-  tags            = dependency.tags.outputs.commons
-
+  prefix_name           = dependency.tags.outputs.prefix_name
   oidc                  = dependency.eks.outputs.oidc
   thumbprint_list       = dependency.eks.outputs.thumbprint
   oidc_without_protocol = dependency.eks.outputs.oidc_without_protocol
+  tags                  = dependency.tags.outputs.commons
 }

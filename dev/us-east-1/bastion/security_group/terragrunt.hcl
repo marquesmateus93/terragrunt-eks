@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../Dev-Marques-Ops/terraform-eks/modules/bastion/security_group"
+    source = "../../../../../../TerraformModules/terraform-eks/modules/bastion/security_group"
 }
 
 include {
@@ -19,7 +19,12 @@ dependency "tags" {
     }
 }
 
+dependency "key_pair" {
+    config_path = "../key_pair"
+}
+
 inputs = {
-    prefix_name = dependency.tags.outputs.prefix_name
-    tags        = dependency.tags.outputs.commons
+    prefix_name         = dependency.tags.outputs.prefix_name
+    is_bastion_enable   = dependency.key_pair.outputs.is_bastion_enable
+    tags                = dependency.tags.outputs.commons
 }

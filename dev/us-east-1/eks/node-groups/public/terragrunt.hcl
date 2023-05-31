@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../Dev-Marques-Ops/terraform-eks/modules/eks/node-groups/public"
+  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/node-groups/public"
 }
 
 include {
@@ -32,7 +32,8 @@ dependency "key_pair" {
   config_path = "../../../bastion/key_pair"
 
   mock_outputs = {
-    key_pair_id = "dummy_key"
+    key_pair_id       = "dummy_key"
+    is_bastion_enable = true
   }
 }
 
@@ -45,11 +46,11 @@ dependency "security_groups" {
 }
 
 inputs = {
-  prefix_name     = dependency.tags.outputs.prefix_name
-  tags            = dependency.tags.outputs.commons
-
-  cluster_name    = dependency.eks.outputs.cluster_name
-  eks_version     = dependency.eks.outputs.eks_version
-  ec2_ssh_key     = dependency.key_pair.outputs.key_pair_id
-  security_groups = dependency.security_groups.outputs.security_group_id
+  prefix_name         = dependency.tags.outputs.prefix_name
+  cluster_name        = dependency.eks.outputs.cluster_name
+  eks_version         = dependency.eks.outputs.eks_version
+  ec2_ssh_key         = dependency.key_pair.outputs.key_pair_id
+  is_bastion_enable   = dependency.key_pair.outputs.is_bastion_enable
+  security_groups     = dependency.security_groups.outputs.security_group_id
+  tags                = dependency.tags.outputs.commons
 }
