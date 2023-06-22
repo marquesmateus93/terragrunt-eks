@@ -21,16 +21,23 @@ dependency "tags" {
 
 dependency "security_group" {
     config_path = "../security_group"
+    mock_outputs = {
+        security_group_id = "Dummy Security Group ID"
+    }
 }
 
 dependency "key_pair" {
     config_path = "../key_pair"
+    mock_outputs = {
+        is_bastion_enable   = false
+        key_pair_id         = "Dummy Key Pair ID"
+    }
 }
 
 inputs = {
-    prefix_name         = dependency.tags.outputs.prefix_name
-    security_group_id = dependency.security_group.outputs.security_group_id
-    key_pair_name       = dependency.key_pair.outputs.key_pair_id
     is_bastion_enable   = dependency.key_pair.outputs.is_bastion_enable
+    prefix_name         = dependency.tags.outputs.prefix_name
+    security_group_id   = dependency.security_group.outputs.security_group_id
+    key_pair_name       = dependency.key_pair.outputs.key_pair_id
     tags                = dependency.tags.outputs.commons
 }

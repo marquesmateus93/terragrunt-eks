@@ -29,6 +29,7 @@ dependency "eks" {
   mock_outputs = {
     cluster_name  = "dummy_cluster"
     eks_version   = "1.26"
+    oidc_without_protocol = "dummy.oidc.local"
   }
 }
 

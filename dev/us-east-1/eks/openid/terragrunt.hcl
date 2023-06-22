@@ -21,6 +21,11 @@ dependency "tags" {
 
 dependency "eks" {
   config_path = "../eks"
+  mock_outputs = {
+    oidc                  = "https://dummy.oidc.local"
+    thumbprint            = run_cmd("openssl", "rand", "-hex", "20")
+    oidc_without_protocol = "Dummy Thumbprint Without Protocol"
+  }
 }
 
 inputs = {

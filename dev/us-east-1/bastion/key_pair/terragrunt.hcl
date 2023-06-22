@@ -20,8 +20,8 @@ dependency "tags" {
 }
 
 inputs = {
+    is_bastion_enable   = false
     prefix_name         = dependency.tags.outputs.prefix_name
     public_key          = file("key_files/marques.pub")
-    is_bastion_enable   = false
     tags                = dependency.tags.outputs.commons
 }

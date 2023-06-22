@@ -21,10 +21,13 @@ dependency "tags" {
 
 dependency "key_pair" {
     config_path = "../key_pair"
+    mock_outputs = {
+        is_bastion_enable = false
+    }
 }
 
 inputs = {
-    prefix_name         = dependency.tags.outputs.prefix_name
     is_bastion_enable   = dependency.key_pair.outputs.is_bastion_enable
+    prefix_name         = dependency.tags.outputs.prefix_name
     tags                = dependency.tags.outputs.commons
 }

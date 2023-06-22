@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/node-groups/public"
+  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/node-groups/private"
 }
 
 include {
@@ -46,7 +46,7 @@ dependency "security_groups" {
 }
 
 inputs = {
-  is_public_node_group_enable   = false
+  is_private_node_group_enable  = true
   prefix_name                   = dependency.tags.outputs.prefix_name
   cluster_name                  = dependency.eks.outputs.cluster_name
   eks_version                   = dependency.eks.outputs.eks_version
