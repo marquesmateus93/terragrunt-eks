@@ -1,3 +1,4 @@
 .terragrunt*
 .terraform*
 .idea
+.DS_Store

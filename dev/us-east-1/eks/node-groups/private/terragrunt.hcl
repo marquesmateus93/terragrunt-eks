@@ -46,12 +46,11 @@ dependency "security_groups" {
 }
 
 inputs = {
-  is_private_node_group_enable  = true
+  is_bastion_enable             = dependency.key_pair.outputs.is_bastion_enable
   prefix_name                   = dependency.tags.outputs.prefix_name
   cluster_name                  = dependency.eks.outputs.cluster_name
   eks_version                   = dependency.eks.outputs.eks_version
   ec2_ssh_key                   = dependency.key_pair.outputs.key_pair_id
-  is_bastion_enable             = dependency.key_pair.outputs.is_bastion_enable
   security_groups               = dependency.security_groups.outputs.security_group_id
   tags                          = dependency.tags.outputs.commons
 }
