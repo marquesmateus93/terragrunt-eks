@@ -8,7 +8,7 @@ on:
 env:
   ACCOUNT_NUMBER: ${{secrets.AWS_ACCOUNT}}
   AWS_REGION: ${{vars.AWS_DEFAULT_REGION}}
-  TerragruntPath: dev/${{vars.AWS_DEFULT_REGION}}
+  TerragruntPath: dev/${{vars.AWS_DEFAULT_REGION}}
   TerraformVersion: 1.3.6
   TerragruntVersion: 0.42.5
 
