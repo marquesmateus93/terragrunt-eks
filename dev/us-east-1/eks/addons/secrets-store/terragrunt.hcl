@@ -19,6 +19,10 @@ dependency "tags" {
   }
 }
 
+dependency "eks" {
+  config_path = "../../eks"
+}
+
 inputs = {
   prefix_name = dependency.tags.outputs.prefix_name
   tags        = dependency.tags.outputs.commons
