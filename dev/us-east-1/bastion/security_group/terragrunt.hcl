@@ -1,5 +1,5 @@
 terraform {
-    source = "git@github.com:marquesmateus93/terraform-eks.git//modules/bastion/key_pair"
+    source = "git@github.com:marquesmateus93/terraform-eks.git//modules/bastion/security_group"
 }
 
 include {
