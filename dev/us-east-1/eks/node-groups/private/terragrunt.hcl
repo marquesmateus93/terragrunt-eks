@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/node-groups/private"
+  source = "git@github.com:marquesmateus93/terraform-eks.git//modules/eks/node-groups/private"
 }
 
 include {

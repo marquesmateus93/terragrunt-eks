@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../../../../../TerraformModules/terraform-eks/modules/eks/addons/csi"
+  source = "git@github.com:marquesmateus93/terraform-eks.git//modules/eks/addons/csi"
   include_in_copy = [
     "**/.helmignore",
     ".helmignore",

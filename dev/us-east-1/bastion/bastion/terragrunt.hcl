@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../../../../TerraformModules/terraform-eks/modules/bastion/bastion"
+    source = "git@github.com:marquesmateus93/terraform-eks.git//modules/bastion/bastion"
 }
 
 include {
