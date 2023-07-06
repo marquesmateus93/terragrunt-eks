@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:marquesmateus93/terraform-eks.git//modules/eks/addons/secrets-store"
+  source = "git@github.com:marquesmateus93/terraform-eks.git//modules/eks/addons/secrets-store/csi-driver"
 }
 
 include {
