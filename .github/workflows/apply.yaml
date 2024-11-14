@@ -1,0 +1,26 @@
+name: EKS Apply
+on:
+  push:
+    paths:
+      - 'dev/**'
+      - 'sta/**'
+      - 'pro/**'
+  workflow_dispatch:
+
+jobs:
+  EKS_Apply:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Terragrunt Apply Path Based
+        uses: marquesmateus93/piperoad/actions/terragrunt-apply-path-based@master
+        env:
+          AWS_REGION:         ${{ vars.AWS_DEFAULT_REGION }}
+          AWS_DEV_ACCOUNT:    ${{ vars.AWS_DEV_ACCOUNT }}
+          AWS_STA_ACCOUNT:    ${{ vars.AWS_STA_ACCOUNT }}
+          AWS_PRO_ACCOUNT:    ${{ vars.AWS_PRO_ACCOUNT }}
+          TERRAFORM_VERSION:  ${{ vars.TERRAFORM_VERSION }}
+          TERRAGRUNT_VERSION: ${{ vars.TERRAGRUNT_VERSION }}

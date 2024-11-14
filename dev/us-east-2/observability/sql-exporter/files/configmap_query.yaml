@@ -1,0 +1,15 @@
+  config.yml: |
+    jobs:
+      - name: "proctorings_metrics"
+        interval: '1m'
+        connections:
+        - 'sqlserver://{{MSSQL_USER}}:{{MSSQL_PASSWORD}}@{{MSSQL_HOST}}?database={{MSSQL_BASE_NAME}}'
+        queries:
+        - name: "query_name"
+          help: "Query help description."
+          labels:
+            - "label"
+          values:
+            - "value"
+          query: |
+            

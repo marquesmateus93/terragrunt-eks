@@ -1,0 +1,23 @@
+name: EKS Pull Request
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  EKS_Pull_Request:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Terragrunt Plan Path Based
+        uses: marquesmateus93/piperoad/actions/pull-request@master
+        env:
+          AWS_REGION:         ${{ vars.AWS_DEFAULT_REGION }}
+          AWS_DEV_ACCOUNT:    ${{ vars.AWS_DEV_ACCOUNT }}
+          AWS_STA_ACCOUNT:    ${{ vars.AWS_STA_ACCOUNT }}
+          AWS_PRO_ACCOUNT:    ${{ vars.AWS_PRO_ACCOUNT }}
+          TERRAFORM_VERSION:  ${{ vars.TERRAFORM_VERSION }}
+          TERRAGRUNT_VERSION: ${{ vars.TERRAGRUNT_VERSION }}
