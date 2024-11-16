@@ -2,7 +2,7 @@
 
 ## About
 
-The project creates an EKS cluster by consuming Terraform modules.
+The project creates an EKS cluster by consuming [Terraform EKS modules](https://github.com/marquesmateus93/terraform-eks).
 
 ## Core Components
 
